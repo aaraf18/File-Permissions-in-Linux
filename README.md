@@ -1,8 +1,14 @@
-# File-Permissions-in-Linux
+# Linux File Permissions
 
----
+A Linux lab documenting how to inspect and adjust file and directory permissions for a simulated research team.
 
-# Project description  
+**Skills:** Linux CLI, ls, chmod, least privilege
+
+## Project context
+
+This repository presents an educational exercise. References to organisations and incidents describe the exercise scenario, not professional employment or a client engagement.
+
+## Project description  
 
 The research team at my organization needs to update the file permissions for certain files and directories within the `projects` directory. The permissions do not currently reflect the level of authorization that should be given. Checking and updating these permissions will help keep their system secure.  
 
@@ -15,7 +21,7 @@ The following code demonstrates how I used `Linux` commands to determine the exi
 
 ![step 1](Images/Step1.png)
 
-I have used `ls -la` commands to list all the files inside the directory including hidden files. The command shows that the `projects` directory has one sub directory `drafts`, a hidden file name `project_x.txt` and other projects files.
+I have used `ls -la` commands to list all the files inside the directory including hidden files. The command shows that the `projects` directory has one sub directory `drafts`, a hidden file named `.project_x.txt` and other projects files.
 
 
 ## Describe the permissions string
@@ -26,7 +32,7 @@ The 10-character string can be deconstructed to determine who is authorized to a
 - **5th-7th characters:** These characters indicate the read (`r`), write (`w`), and execute (`x`) permissions for the group. When one of these characters is a hyphen (`-`) instead, it indicates that this permission is not granted for the group.
 - **8th-10th characters:** These characters indicate the read (`r`), write (`w`), and execute (`x`) permissions for others. This owner type consists of all other users on the system apart from the user and the group. When one of these characters is a hyphen (`-`) instead, that indicates that this permission is not granted for others.
 
-For example, the file permissions for `project_t.txt` are `-rw-rw-r--`. Since the first character is a hyphen (`-`), this indicates that `project_t.txt` is a file, not a directory. The second, fifth, and eighth characters are all `r`, which indicates that user, group, and other all have read permissions. The third and sixth characters are `w`, which indicates that only the user and group have write permissions. No one has executed permissions for `project_t.txt`.
+For example, the file permissions for `project_t.txt` are `-rw-rw-r--`. Since the first character is a hyphen (`-`), this indicates that `project_t.txt` is a file, not a directory. The second, fifth, and eighth characters are all `r`, which indicates that user, group, and other all have read permissions. The third and sixth characters are `w`, which indicates that only the user and group have write permissions. No one has execute permissions for `project_t.txt`.
 
 
 ## Change file permissions
@@ -53,7 +59,7 @@ The first two lines of the screenshot display the commands I entered, and the ot
 
 ## Change directory permissions
 
-My organization only wants the `researcher` user to have access to the drafts directory and its contents. This means that no one other than `researcher2` should have execute permissions.
+My organization only wants the `researcher2` user to have access to the drafts directory and its contents. This means that no one other than `researcher2` should have execute permissions.
 
 The following code demonstrates how I used `Linux` commands to change the permissions:
 
@@ -66,3 +72,4 @@ The output here displays the permission listing for several files and directorie
 
 I changed multiple permissions to match the level of authorization my organization wanted for files and directories in the projects directory. The first step in this was using `ls -la` to check the permissions for the directory. This informed my decisions in the following steps. I then used the `chmod` command multiple times to change the permissions on files and directories.
 
+[Back to my portfolio](https://github.com/aaraf18)
